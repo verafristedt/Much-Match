@@ -1,4 +1,6 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, belongsTo} from '@loopback/repository';
+import {Image} from './image.model';
+import {User} from './user.model';
 
 @model({settings: {strict: false}})
 export class Swipe extends Entity {
@@ -29,6 +31,11 @@ export class Swipe extends Entity {
   })
   rawX: number[];
 
+  @belongsTo(() => Image)
+  imageId: string;
+
+  @belongsTo(() => User)
+  userId: string;
   // Define well-known properties here
 
   // Indexer property to allow additional data

@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Swipe} from './swipe.model';
 
 @model({settings: {strict: false}})
 export class User extends Entity {
@@ -33,6 +34,8 @@ export class User extends Entity {
   })
   isStudent: boolean;
 
+  @hasMany(() => Swipe)
+  swipes: Swipe[];
   // Define well-known properties here
 
   // Indexer property to allow additional data
