@@ -53,7 +53,8 @@
     "@loopback/repository": "^1.15.4",
     "@loopback/rest": "^1.23.0",
     "@loopback/rest-explorer": "^1.4.4",
-    "@loopback/service-proxy": "^1.3.11"
+    "@loopback/service-proxy": "^1.3.11",
+    "openapi-to-graphql-cli": "^1.6.2"
   },
   "devDependencies": {
     "@loopback/build": "^2.0.16",

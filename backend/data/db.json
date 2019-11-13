@@ -1,0 +1,10 @@
+{
+  "ids": {
+    "Image": 2
+  },
+  "models": {
+    "Image": {
+      "1": "{\"url\":\"string\",\"name\":\"string\",\"id\":1}"
+    }
+  }
+}
