@@ -45,6 +45,10 @@ export class Swipe extends Entity {
   constructor(data?: Partial<Swipe>) {
     super(data);
   }
+
+  get averageSpeed() {
+    return 0;
+  }
 }
 
 export interface SwipeRelations {
