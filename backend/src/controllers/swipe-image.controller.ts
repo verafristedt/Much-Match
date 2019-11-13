@@ -1,22 +1,13 @@
-import {
-  repository,
-} from '@loopback/repository';
-import {
-  param,
-  get,
-  getModelSchemaRef,
-} from '@loopback/rest';
-import {
-  Swipe,
-  Image,
-} from '../models';
+import {repository} from '@loopback/repository';
+import {param, get, getModelSchemaRef} from '@loopback/rest';
+import {Swipe, Image} from '../models';
 import {SwipeRepository} from '../repositories';
 
 export class SwipeImageController {
   constructor(
     @repository(SwipeRepository)
     public swipeRepository: SwipeRepository,
-  ) { }
+  ) {}
 
   @get('/swipes/{id}/image', {
     responses: {

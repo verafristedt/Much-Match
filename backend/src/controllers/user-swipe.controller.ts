@@ -15,21 +15,18 @@ import {
   post,
   requestBody,
 } from '@loopback/rest';
-import {
-  User,
-  Swipe,
-} from '../models';
+import {User, Swipe} from '../models';
 import {UserRepository} from '../repositories';
 
 export class UserSwipeController {
   constructor(
     @repository(UserRepository) protected userRepository: UserRepository,
-  ) { }
+  ) {}
 
   @get('/users/{id}/swipes', {
     responses: {
       '200': {
-        description: 'Array of Swipe\'s belonging to User',
+        description: "Array of Swipe's belonging to User",
         content: {
           'application/json': {
             schema: {type: 'array', items: getModelSchemaRef(Swipe)},
@@ -61,11 +58,12 @@ export class UserSwipeController {
           schema: getModelSchemaRef(Swipe, {
             title: 'NewSwipeInUser',
             exclude: ['id'],
-            optional: ['userId']
+            optional: ['userId'],
           }),
         },
       },
-    }) swipe: Omit<Swipe, 'id'>,
+    })
+    swipe: Omit<Swipe, 'id'>,
   ): Promise<Swipe> {
     return this.userRepository.swipes(id).create(swipe);
   }

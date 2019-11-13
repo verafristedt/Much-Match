@@ -23,7 +23,7 @@ import {SwipeRepository} from '../repositories';
 export class SwipeController {
   constructor(
     @repository(SwipeRepository)
-    public swipeRepository : SwipeRepository,
+    public swipeRepository: SwipeRepository,
   ) {}
 
   @post('/swipes', {
@@ -77,7 +77,8 @@ export class SwipeController {
     },
   })
   async find(
-    @param.query.object('filter', getFilterSchemaFor(Swipe)) filter?: Filter<Swipe>,
+    @param.query.object('filter', getFilterSchemaFor(Swipe))
+    filter?: Filter<Swipe>,
   ): Promise<Swipe[]> {
     return this.swipeRepository.find(filter);
   }

@@ -1,10 +1,18 @@
 {
   "ids": {
-    "Image": 2
+    "Image": 2,
+    "Swipe": 2,
+    "User": 2
   },
   "models": {
     "Image": {
       "1": "{\"url\":\"string\",\"name\":\"string\",\"id\":1}"
+    },
+    "Swipe": {
+      "1": "{\"appWidth\":600,\"rawTime\":[0,1],\"rawX\":[0,10],\"imageId\":\"1\",\"userId\":\"1\",\"id\":1}"
+    },
+    "User": {
+      "1": "{\"isMale\":true,\"age\":22,\"isWorking\":true,\"isStudent\":true,\"id\":1}"
     }
   }
 }

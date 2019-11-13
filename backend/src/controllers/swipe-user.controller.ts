@@ -1,22 +1,13 @@
-import {
-  repository,
-} from '@loopback/repository';
-import {
-  param,
-  get,
-  getModelSchemaRef,
-} from '@loopback/rest';
-import {
-  Swipe,
-  User,
-} from '../models';
+import {repository} from '@loopback/repository';
+import {param, get, getModelSchemaRef} from '@loopback/rest';
+import {Swipe, User} from '../models';
 import {SwipeRepository} from '../repositories';
 
 export class SwipeUserController {
   constructor(
     @repository(SwipeRepository)
     public swipeRepository: SwipeRepository,
-  ) { }
+  ) {}
 
   @get('/swipes/{id}/user', {
     responses: {

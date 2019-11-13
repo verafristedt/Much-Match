@@ -15,21 +15,18 @@ import {
   post,
   requestBody,
 } from '@loopback/rest';
-import {
-  Image,
-  Swipe,
-} from '../models';
+import {Image, Swipe} from '../models';
 import {ImageRepository} from '../repositories';
 
 export class ImageSwipeController {
   constructor(
     @repository(ImageRepository) protected imageRepository: ImageRepository,
-  ) { }
+  ) {}
 
   @get('/images/{id}/swipes', {
     responses: {
       '200': {
-        description: 'Array of Swipe\'s belonging to Image',
+        description: "Array of Swipe's belonging to Image",
         content: {
           'application/json': {
             schema: {type: 'array', items: getModelSchemaRef(Swipe)},
@@ -61,11 +58,12 @@ export class ImageSwipeController {
           schema: getModelSchemaRef(Swipe, {
             title: 'NewSwipeInImage',
             exclude: ['id'],
-            optional: ['imageId']
+            optional: ['imageId'],
           }),
         },
       },
-    }) swipe: Omit<Swipe, 'id'>,
+    })
+    swipe: Omit<Swipe, 'id'>,
   ): Promise<Swipe> {
     return this.imageRepository.swipes(id).create(swipe);
   }
