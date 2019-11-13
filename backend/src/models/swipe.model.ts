@@ -47,7 +47,17 @@ export class Swipe extends Entity {
   }
 
   get averageSpeed() {
-    return 0;
+	// Computes the total distance the finger travels and divides 
+	// it by the total time from first touch to release
+    let distanceTravelled = 0;
+	let rawXLength = this.rawX.length;
+	for (let i = 1; i < rawXLength; i++) {
+		distanceTravelled += Math.abs(this.rawX[i] - this.rawX[i-1]);
+	}
+	let swipeTime = this.rawTime[this.rawTime.length-1] - this.rawTime[0];
+	
+	let averageSpeed = distanceTravelled/swipeTime;
+	return averageSpeed;
   }
 }
 

@@ -10,17 +10,13 @@ describe('Swipe Model', () => {
 
     it('should return the right speed with valid raw data ', async () => {
       const swipe: Swipe = new Swipe();
-      swipe.rawTime = [1, 2];
-      swipe.rawTime = [10, 20];
-      expect(swipe.averageSpeed).to.equal(10);
+      swipe.rawX = [1, 2, 1, 3];
+      swipe.rawTime = [0, 20, 30, 40];
+	  console.log("Calculated average speed is");
+	  console.log(swipe.averageSpeed);
+      expect(swipe.averageSpeed).to.equal(0.1);
     });
 
-    it('should return 0 if raw data is one value', async () => {
-      const swipe: Swipe = new Swipe();
-      swipe.rawTime = [1];
-      swipe.rawTime = [10];
-      expect(swipe.averageSpeed).to.equal(0);
-    });
 
     // it('should return negative speed if on the left', async () => {});
   });
