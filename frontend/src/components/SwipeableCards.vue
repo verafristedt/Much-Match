@@ -229,8 +229,8 @@ export default {
   // clip-path: polygon(0 1%, 100% 0%, 100% 76%, 0 89%);
   display: flex;
   justify-content: space-between;
-  font-size: 4rem;
-  padding: 1.1rem;
+  font-size: 3rem;
+  padding: 1.1rem 0;
 
   span {
     text-align: center;
