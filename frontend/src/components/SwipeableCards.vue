@@ -24,35 +24,25 @@
         class="rounded-borders card card--one"
       >
         <div style="height: 100%">
-          <img
-            :src="require(`../assets/images/${current.src}`)"
-            class="rounded-borders"
-          />
+          <img :src="require(`../assets/images/${current.src}`)" class="rounded-borders" />
           <!-- <div class="text">
             <h2>
               {{current.name}},
               <span>{{current.age}}</span>
             </h2>
-          </div> -->
+          </div>-->
         </div>
       </Vue2InteractDraggable>
     </div>
-    <div
-      v-if="next"
-      class="rounded-borders card card--two fixed fixed--center"
-      style="z-index: 2"
-    >
+    <div v-if="next" class="rounded-borders card card--two fixed fixed--center" style="z-index: 2">
       <div style="height: 100%">
-        <img
-          :src="require(`../assets/images/${next.src}`)"
-          class="rounded-borders"
-        />
-        <div class="text">
+        <img :src="require(`../assets/images/${next.src}`)" class="rounded-borders" />
+        <!-- <div class="text">
           <h2>
             {{ next.name }},
             <span>{{ next.age }}</span>
           </h2>
-        </div>
+        </div>-->
       </div>
     </div>
     <div
@@ -138,26 +128,26 @@ export default {
 
 .header {
   width: 100%;
-  height: 60vh;
+  // height: 60vh;
   z-index: 0;
   top: 0;
   left: 0;
   color: white;
-  text-align: center;
-  font-style: italic;
-  font-family: "Engagement", cursive;
   background: #f953c6;
-  background: -webkit-linear-gradient(to top, #b91d73, #f953c6);
-  background: linear-gradient(to top, #b91d73, #f953c6);
-  clip-path: polygon(0 1%, 100% 0%, 100% 76%, 0 89%);
+  // background: -webkit-linear-gradient(to top, #b91d73, #f953c6);
+  // background: linear-gradient(to top, #b91d73, #f953c6);
+  // clip-path: polygon(0 1%, 100% 0%, 100% 76%, 0 89%);
   display: flex;
   justify-content: space-between;
+  font-size: 4rem;
+  padding: 1.1rem;
+
   span {
-    display: block;
-    font-size: 4rem;
-    padding-top: 2rem;
-    text-shadow: 1px 1px 1px red;
+    text-align: center;
+    // padding-top: 2rem;
+    width: 100%;
   }
+
   i {
     padding: 24px;
   }

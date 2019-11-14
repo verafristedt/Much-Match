@@ -40,7 +40,7 @@ export default {
       return array;
     };
     axios
-      .get(`${process.env.VUE_APP_API_BASE}/images`)
+      .get(`${process.env.VUE_APP_API_BASE}images`)
       .then(response => (this.cards = shuffle(response.data)));
   }
 };
