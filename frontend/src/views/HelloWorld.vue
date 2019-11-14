@@ -73,6 +73,7 @@
         <v-card-title class="headline grey lighten-2" primary-title>Well done!</v-card-title>
 
         <v-card-text>
+          <br />
           <b>{{userId}}</b> is the only identifier linked to your swiping data. You can use it if you need to contact us to remove your data from the study!
           <br />
           <br />Before starting the actual swiping features collection, you will follow a quick tutorial for using our user interface. Try to act normal!
@@ -118,13 +119,19 @@ export default Vue.extend({
         userData.isWorking = !!this.isWorking;
         userData.isStudent = !!this.isStudent;
         userData.isMale = this.gender === this.genders[0];
+        // TODO: loader
         axios
           .post(`${process.env.VUE_APP_API_BASE}users`, userData)
           .then(response => {
             this.userId = response.data.id;
             this.dialog = !!this.userId;
           })
-          .catch(console.error); // TODO notify user and retry
+          .catch(error => {
+            window.alert(
+              "An error occurred contacting the server... Please retry now or later. If the problem persists please contact us."
+            );
+            console.error(error);
+          }); // TODO notify user and retry
       }
     },
     next() {

@@ -2,14 +2,14 @@
 
 <template>
   <div class="swipe-view">
-    <swipeable-cards v-bind:cards="cards" @match="onmatch" @reject="onreject" />
+    <swipeable-cards v-bind:cards="cards" v-bind:title="title" @match="onmatch" @reject="onreject" />
 
     <v-dialog v-model="dialog" width="500">
       <v-card>
         <v-card-title class="headline grey lighten-2" primary-title>Perfect!</v-card-title>
 
         <v-card-text>
-          You are now ready to
+          <br />You are now ready to
           <b>swipe</b>! The following pictures represent different concepts.
           Swipe
           <b>RIGHT</b> if you
@@ -27,6 +27,16 @@
           <v-spacer></v-spacer>
           <v-btn color="primary" text @click="dialog = false">Let's go!</v-btn>
         </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+    <v-dialog v-model="finished" width="500">
+      <v-card>
+        <v-card-title class="headline grey lighten-2" primary-title>Thank you!</v-card-title>
+
+        <v-card-text>
+          <br />You can now quit the app. Thanks a lot for your help!
+        </v-card-text>
       </v-card>
     </v-dialog>
   </div>
@@ -55,6 +65,9 @@ export default {
       userId: null,
       cards: [],
       dialog: true,
+      counter: 0,
+      title: null,
+      finished: false,
       loading: true // TODO
     };
   },
@@ -63,11 +76,24 @@ export default {
       data.liked = true;
       data.userId = this.userId;
       postSwipeData(data);
+      this.updateTitle();
     },
     onreject(data) {
       data.liked = false;
       data.userId = this.userId;
       postSwipeData(data);
+      this.updateTitle();
+    },
+    updateTitle() {
+      console.log("test");
+      const count = ++this.counter;
+      const total = this.cards.length;
+      const left = total - count;
+      if (left === 0) {
+        this.finished = true;
+        this.title = "Finished!";
+      } else if (left < 4) this.title = `${left} more!`;
+      else this.title = `${count + 1}/${total}`;
     }
   },
   mounted() {

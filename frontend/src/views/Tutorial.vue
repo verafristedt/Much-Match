@@ -85,12 +85,12 @@ export default {
         title: "Swipe it left!"
       },
       {
-        expectLike: true,
-        title: "Like it!"
-      },
-      {
         expectLike: false,
         title: "Don't like it!"
+      },
+      {
+        expectLike: true,
+        title: "Like it!"
       },
       {
         expectLike: true,

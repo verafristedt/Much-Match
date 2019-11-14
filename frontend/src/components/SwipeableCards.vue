@@ -67,7 +67,7 @@
         <v-card-title class="headline grey lighten-2" primary-title>Heyy!</v-card-title>
 
         <v-card-text>
-          The idea here is to collect data on swiping features... therefore you should not use the buttons to indicate your preference!
+          <br />The idea here is to collect data on swiping features... therefore you should not use the buttons to indicate your preference!
           <br />
           <br />
           You {{helpLiked ? 'liked' : 'didn\'t like' }} this picture?
@@ -163,7 +163,7 @@ export default {
         appHeight: this.window.height
       };
       this.$emit(event, { ...meta, ...this.swipeData });
-      console.log(this.swipeData);
+      // console.log(this.swipeData);
       this.swipeData = {
         rawX: [],
         rawTimestamps: [],
