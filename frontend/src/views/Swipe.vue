@@ -2,13 +2,21 @@
 
 <template>
   <div class="swipe-view">
-    <swipeable-cards v-bind:cards="cards" />
+    <swipeable-cards v-bind:cards="cards" @match="onmatch" @reject="onreject" />
   </div>
 </template>
 
 <script>
 import SwipeableCards from "@/components/SwipeableCards.vue";
 import axios from "axios";
+
+const postSwipeData = data => {
+  data.imageId = data.imageId + "";
+  axios
+    .post(`${process.env.VUE_APP_API_BASE}swipes`, data)
+    .then(console.log)
+    .catch(console.error); // TODO notify user and retry
+};
 
 export default {
   name: "swipe",
@@ -20,6 +28,16 @@ export default {
       cards: [],
       loading: true // TODO
     };
+  },
+  methods: {
+    onmatch: data => {
+      data.liked = true;
+      postSwipeData(data);
+    },
+    onreject: data => {
+      data.liked = false;
+      postSwipeData(data);
+    }
   },
   mounted() {
     let shuffle = array => {

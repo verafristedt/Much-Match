@@ -93,8 +93,33 @@ export default {
       interactEventBus: {
         draggedRight: EVENTS.MATCH,
         draggedLeft: EVENTS.REJECT
+      },
+      swipeData: {
+        rawX: [],
+        rawTimestamps: [],
+        rawTime: [],
+        rawY: [],
+        rawSpeedX: [],
+        rawSpeedY: [],
+        rawSpeed: []
+      },
+      swipeRelativeData: {
+        lastX: 0,
+        lastY: 0,
+        lastT: 0
+      },
+      window: {
+        width: 0,
+        height: 0
       }
     };
+  },
+  created() {
+    window.addEventListener("resize", this.handleResize);
+    this.handleResize();
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.handleResize);
   },
   computed: {
     current() {
@@ -115,7 +140,27 @@ export default {
       InteractEventBus.$emit(EVENTS.SKIP);
     },
     emitAndNext(event) {
-      this.$emit(event, this.index);
+      const meta = {
+        imageId: this.cards[this.index].id,
+        appWidth: this.window.width,
+        appHeight: this.window.height
+      };
+      this.$emit(event, { ...meta, ...this.swipeData });
+      console.log(this.swipeData);
+      this.swipeData = {
+        rawX: [],
+        rawTimestamps: [],
+        rawTime: [],
+        rawY: [],
+        rawSpeedX: [],
+        rawSpeedY: [],
+        rawSpeed: []
+      };
+      this.swipeRelativeData = {
+        lastX: 0,
+        lastY: 0,
+        lastT: 0
+      };
       setTimeout(() => (this.isVisible = false), 200);
       setTimeout(() => {
         this.index++;
@@ -124,7 +169,24 @@ export default {
     },
     console(data) {
       // eslint-disable-next-line no-console
-      console.log(data);
+      // console.log(data);
+
+      this.swipeRelativeData.lastX += data.dx;
+      this.swipeRelativeData.lastY += data.dy;
+      this.swipeRelativeData.lastT += data.dt;
+
+      this.swipeData.rawX.push(this.swipeRelativeData.lastX);
+      this.swipeData.rawY.push(this.swipeRelativeData.lastY);
+      this.swipeData.rawTime.push(this.swipeRelativeData.lastT);
+
+      this.swipeData.rawTimestamps.push(data.timeStamp);
+      this.swipeData.rawSpeedX.push(data.velocityX);
+      this.swipeData.rawSpeedY.push(data.velocityY);
+      this.swipeData.rawSpeed.push(data.speed);
+    },
+    handleResize() {
+      this.window.width = window.innerWidth;
+      this.window.height = window.innerHeight;
     }
   }
 };
