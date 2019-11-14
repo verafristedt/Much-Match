@@ -903,6 +903,11 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
+"@mdi/font@^3.6.95":
+  version "3.9.97"
+  resolved "https://registry.yarnpkg.com/@mdi/font/-/font-3.9.97.tgz#b9f31e05574452e84f57e5b81d34ffd593bc9c29"
+  integrity sha512-yADBl2mzqIssrhLaRvJ2gZPyEQK+fN9uYh/1/cwwuq2lKDx+ITWsOrh1vlHMfw1IICMx9cwBjSoiCf3B8Br8nw==
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -9503,6 +9508,11 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
+roboto-fontface@*:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/roboto-fontface/-/roboto-fontface-0.10.0.tgz#7eee40cfa18b1f7e4e605eaf1a2740afb6fd71b0"
+  integrity sha512-OlwfYEgA2RdboZohpldlvJ1xngOins5d7ejqnIBWr9KaMxsnBqotpptRXTyfNRLnFpqzX6sTDt+X+a+6udnU8g==
+
 rss-parser@^3.7.3:
   version "3.7.3"
   resolved "https://registry.yarnpkg.com/rss-parser/-/rss-parser-3.7.3.tgz#961cd155ca26cb2ba8f52aa7f2321099b8b5ecf0"
@@ -9794,6 +9804,15 @@ shelljs@0.7.7:
   version "0.7.7"
   resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.7.7.tgz#b2f5c77ef97148f4b4f6e22682e10bba8667cff1"
   integrity sha1-svXHfvlxSPS09uImguELuoZnz/E=
+  dependencies:
+    glob "^7.0.0"
+    interpret "^1.0.0"
+    rechoir "^0.6.2"
+
+shelljs@^0.8.3:
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.8.3.tgz#a7f3319520ebf09ee81275b2368adb286659b097"
+  integrity sha512-fc0BKlAWiLpwZljmOvAOTE/gXawtCoNrP5oaY7KIaQbbyHeQVg01pSEuEGvGh3HEdBU4baCD7wQBwADmM/7f7A==
   dependencies:
     glob "^7.0.0"
     interpret "^1.0.0"
@@ -11199,6 +11218,14 @@ vue-cli-plugin-apollo@^0.21.3:
     subscriptions-transport-ws "^0.9.16"
     ts-node "^8.4.1"
 
+vue-cli-plugin-vuetify@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/vue-cli-plugin-vuetify/-/vue-cli-plugin-vuetify-2.0.2.tgz#160e573d59f2594b89531e95b0fdd74ca76ecd9d"
+  integrity sha512-OJ1YUSfDlQibj111QMGv4a44atmtWdrkynk4voiEuivUqLcZGCJyF/A8ae0VojpMU2jlvZydz0nXjmZmcg+Nqw==
+  dependencies:
+    semver "^6.0.0"
+    shelljs "^0.8.3"
+
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
@@ -11276,6 +11303,11 @@ vue@^2.6.10:
   version "2.6.10"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
   integrity sha512-ImThpeNU9HbdZL3utgMCq0oiMzAkt1mcgy3/E6zWC/G6AaQoeuFdsl9nDhTDU3X1R6FK7nsIUuRACVcjI+A2GQ==
+
+vuetify@^2.1.0:
+  version "2.1.10"
+  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-2.1.10.tgz#ff2107bf1a5f227b18dbe31e08d92753ad68a15b"
+  integrity sha512-hFc6XNYc2YE3HisxCH5VezRFtGQ2RwTvBy7eN+b67UuiGIhvEUR9h3uO4NUuulmvKPKJ4rONN+L9sVszgMBlJQ==
 
 watch@^1.0.2:
   version "1.0.2"
