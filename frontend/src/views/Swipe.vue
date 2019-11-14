@@ -2,17 +2,29 @@
 
 <template>
   <div class="swipe-view">
-    <swipeable-cards />
+    <swipeable-cards v-bind:cards="cards" />
   </div>
 </template>
 
 <script>
 import SwipeableCards from "@/components/SwipeableCards.vue";
+import axios from "axios";
 
 export default {
   name: "swipe",
   components: {
     SwipeableCards
+  },
+  data() {
+    return {
+      cards: [],
+      loading: true // TODO
+    };
+  },
+  mounted() {
+    axios
+      .get(`${process.env.VUE_APP_API_BASE}/images`)
+      .then(response => (this.cards = response.data));
   }
 };
 </script>

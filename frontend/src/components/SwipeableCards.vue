@@ -2,15 +2,13 @@
 <template>
   <section class="container">
     <div class="fixed header">
-      <i class="material-icons" @click="index = 0">refresh</i>
       <span>Swipe it!</span>
-      <i class="material-icons">tune</i>
     </div>
     <div
       v-if="current"
       class="fixed fixed--center"
       style="z-index: 3"
-      :class="{ 'transition': isVisible }"
+      :class="{ transition: isVisible }"
     >
       <Vue2InteractDraggable
         v-if="isVisible"
@@ -23,27 +21,36 @@
         @onmove="console"
         @draggedRight="emitAndNext('match')"
         @draggedLeft="emitAndNext('reject')"
-        @draggedUp="emitAndNext('skip')"
         class="rounded-borders card card--one"
       >
         <div style="height: 100%">
-          <img :src="require(`../assets/images/${current.src}`)" class="rounded-borders" />
-          <div class="text">
+          <img
+            :src="require(`../assets/images/${current.src}`)"
+            class="rounded-borders"
+          />
+          <!-- <div class="text">
             <h2>
               {{current.name}},
               <span>{{current.age}}</span>
             </h2>
-          </div>
+          </div> -->
         </div>
       </Vue2InteractDraggable>
     </div>
-    <div v-if="next" class="rounded-borders card card--two fixed fixed--center" style="z-index: 2">
+    <div
+      v-if="next"
+      class="rounded-borders card card--two fixed fixed--center"
+      style="z-index: 2"
+    >
       <div style="height: 100%">
-        <img :src="require(`../assets/images/${next.src}`)" class="rounded-borders" />
+        <img
+          :src="require(`../assets/images/${next.src}`)"
+          class="rounded-borders"
+        />
         <div class="text">
           <h2>
-            {{next.name}},
-            <span>{{next.age}}</span>
+            {{ next.name }},
+            <span>{{ next.age }}</span>
           </h2>
         </div>
       </div>
@@ -56,13 +63,11 @@
       <div style="height: 100%"></div>
     </div>
     <div class="footer fixed">
-      <div class="btn btn--decline" @click="reject">
+      <!-- TODO: helpers when click -->
+      <div class="btn btn--decline">
         <i class="material-icons">close</i>
       </div>
-      <div class="btn btn--skip" @click="skip">
-        <i class="material-icons">call_missed</i>
-      </div>
-      <div class="btn btn--like" @click="match">
+      <div class="btn btn--like">
         <i class="material-icons">favorite</i>
       </div>
     </div>
@@ -79,31 +84,15 @@ const EVENTS = {
 export default {
   name: "SwipeableCards",
   components: { Vue2InteractDraggable },
+  props: ["cards"], // {src, name, age}
   data() {
     return {
       isVisible: true,
       index: 0,
       interactEventBus: {
         draggedRight: EVENTS.MATCH,
-        draggedLeft: EVENTS.REJECT,
-        draggedUp: EVENTS.SKIP
-      },
-      cards: [
-        // { src: "karina.jpg", name: "Karina", age: 7 },
-        // { src: "alexander.jpg", name: "Alexander", age: 5 },
-        { src: "bona.jpg", name: "Bona", age: 3 }
-        // { src: "ichi.jpg", name: "Ichi", age: 7 },
-        // { src: "lloyd.jpg", name: "Lloyd", age: 4 },
-        // { src: "luiza.jpg", name: "Luiza", age: 9 },
-        // { src: "max.jpg", name: "Max", age: 6 },
-        // { src: "mona.jpg", name: "Mona", age: 3 },
-        // { src: "naru.jpg", name: "Naru", age: 7 },
-        // { src: "ramdan.jpg", name: "Ramdan", age: 8 },
-        // { src: "rikki-austin.jpg", name: "Rikki Austin", age: 3 },
-        // { src: "tucker.jpg", name: "Tucker", age: 9 },
-        // { src: "uriel.jpg", name: "Uriel", age: 6 },
-        // { src: "zoe.jpg", name: "Zoe", age: 2 }
-      ]
+        draggedLeft: EVENTS.REJECT
+      }
     };
   },
   computed: {
