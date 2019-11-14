@@ -14,7 +14,7 @@ export class Image extends Entity {
     type: 'string',
     required: true,
   })
-  url: string;
+  src: string;
 
   @property({
     type: 'string',
@@ -24,10 +24,6 @@ export class Image extends Entity {
   @hasMany(() => Swipe)
   swipes: Swipe[];
   // Define well-known properties here
-
-  // Indexer property to allow additional data
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [prop: string]: any;
 
   constructor(data?: Partial<Image>) {
     super(data);
