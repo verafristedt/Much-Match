@@ -1,14 +1,39 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Swipe from "@/views/Swipe.vue";
+import Tutorial from "@/views/Tutorial.vue";
+import HelloWorld from "@/views/HelloWorld.vue";
 
 Vue.use(VueRouter);
 
+const userGuard = (to: any, from: any, next: any) => {
+  if (!!window.localStorage.getItem("userId")) next();
+  else next("/");
+};
+
 const routes = [
   {
+    path: "/swipe",
+    name: "swipe",
+    component: Swipe,
+    meta: {
+      title: "Swipe it! (MuchMatch)"
+    },
+    beforeEnter: userGuard
+  },
+  {
+    path: "/tutorial",
+    name: "tutorial",
+    component: Tutorial,
+    meta: {
+      title: "Tutorial (MuchMatch)"
+    },
+    beforeEnter: userGuard
+  },
+  {
     path: "/",
-    name: "home",
-    component: Swipe
+    name: "hello",
+    component: HelloWorld
   }
   // {
   //   path: "/about",

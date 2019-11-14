@@ -2,7 +2,7 @@
 <template>
   <section class="container">
     <div class="fixed header">
-      <span>Swipe it!</span>
+      <span>{{title || 'Swipe it!'}}</span>
     </div>
     <div
       v-if="current"
@@ -24,10 +24,7 @@
         class="rounded-borders card card--one"
       >
         <div style="height: 100%">
-          <img
-            :src="require(`../assets/images/${current.src}`)"
-            class="rounded-borders"
-          />
+          <img :src="require(`../assets/images/${current.src}`)" class="rounded-borders" />
           <!-- <div class="text">
             <h2>
               {{current.name}},
@@ -37,16 +34,9 @@
         </div>
       </Vue2InteractDraggable>
     </div>
-    <div
-      v-if="next"
-      class="rounded-borders card card--two fixed fixed--center"
-      style="z-index: 2"
-    >
+    <div v-if="next" class="rounded-borders card card--two fixed fixed--center" style="z-index: 2">
       <div style="height: 100%">
-        <img
-          :src="require(`../assets/images/${next.src}`)"
-          class="rounded-borders"
-        />
+        <img :src="require(`../assets/images/${next.src}`)" class="rounded-borders" />
         <!-- <div class="text">
           <h2>
             {{ next.name }},
@@ -64,13 +54,34 @@
     </div>
     <div class="footer fixed">
       <!-- TODO: helpers when click -->
-      <div class="btn btn--decline">
+      <div class="btn btn--decline" @click="openhelper(false)">
         <i class="material-icons">close</i>
       </div>
-      <div class="btn btn--like">
+      <div class="btn btn--like" @click="openhelper(true)">
         <i class="material-icons">favorite</i>
       </div>
     </div>
+
+    <v-dialog v-model="helpDialog" width="500">
+      <v-card>
+        <v-card-title class="headline grey lighten-2" primary-title>Heyy!</v-card-title>
+
+        <v-card-text>
+          The idea here is to collect data on swiping features... therefore you should not use the buttons to indicate your preference!
+          <br />
+          <br />
+          You {{helpLiked ? 'liked' : 'didn\'t like' }} this picture?
+          Just press your finger on the card and drag it to the {{helpLiked ? 'right' : 'left'}} of your screen until it disappears.
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="primary" text @click="helpDialog = false">Let's swipe!</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </section>
 </template>
 <script>
@@ -85,7 +96,7 @@ const EVENTS = {
 export default {
   name: "SwipeableCards",
   components: { Vue2InteractDraggable },
-  props: ["cards"], // {src, name, age}
+  props: ["cards", "title"], // {src, name, age}
   data() {
     return {
       isVisible: true,
@@ -111,7 +122,9 @@ export default {
       window: {
         width: 0,
         height: 0
-      }
+      },
+      helpDialog: false,
+      helpLiked: false
     };
   },
   created() {
@@ -130,6 +143,10 @@ export default {
     }
   },
   methods: {
+    openhelper(liked) {
+      this.helpDialog = true;
+      this.helpLiked = liked;
+    },
     match() {
       InteractEventBus.$emit(EVENTS.MATCH);
     },

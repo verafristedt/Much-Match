@@ -3,12 +3,39 @@
 <template>
   <div class="swipe-view">
     <swipeable-cards v-bind:cards="cards" @match="onmatch" @reject="onreject" />
+
+    <v-dialog v-model="dialog" width="500">
+      <v-card>
+        <v-card-title class="headline grey lighten-2" primary-title>Perfect!</v-card-title>
+
+        <v-card-text>
+          You are now ready to
+          <b>swipe</b>! The following pictures represent different concepts.
+          Swipe
+          <b>RIGHT</b> if you
+          <b>LIKE</b> the picture and its concept
+          or
+          <b>LEFT</b> if you
+          <b>DON'T LIKE</b> it.
+          <br />
+          <br />Good luck, it's very quick! And try to act natural... ;-)
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="primary" text @click="dialog = false">Let's go!</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
 <script>
 import SwipeableCards from "@/components/SwipeableCards.vue";
 import axios from "axios";
+import shuffle from "@/utils/shuffle";
 
 const postSwipeData = data => {
   data.imageId = data.imageId + "";
@@ -25,38 +52,26 @@ export default {
   },
   data() {
     return {
+      userId: null,
       cards: [],
+      dialog: true,
       loading: true // TODO
     };
   },
   methods: {
-    onmatch: data => {
+    onmatch(data) {
       data.liked = true;
+      data.userId = this.userId;
       postSwipeData(data);
     },
-    onreject: data => {
+    onreject(data) {
       data.liked = false;
+      data.userId = this.userId;
       postSwipeData(data);
     }
   },
   mounted() {
-    let shuffle = array => {
-      let currentIndex = array.length,
-        temporaryValue,
-        randomIndex;
-      // While there remain elements to shuffle...
-      while (0 !== currentIndex) {
-        // Pick a remaining element...
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-
-        // And swap it with the current element.
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-      }
-      return array;
-    };
+    this.userId = window.localStorage.getItem("userId");
     axios
       .get(`${process.env.VUE_APP_API_BASE}images`)
       .then(response => (this.cards = shuffle(response.data)));
