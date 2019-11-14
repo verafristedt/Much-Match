@@ -18,6 +18,12 @@ export class Swipe extends Entity {
   appWidth: number;
 
   @property({
+    type: 'number',
+    required: true,
+  })
+  appHeight: number;
+
+  @property({
     type: 'array',
     itemType: 'number',
     required: true,
@@ -29,7 +35,48 @@ export class Swipe extends Entity {
     itemType: 'number',
     required: true,
   })
+  rawTimestamps: number[];
+
+  @property({
+    type: 'array',
+    itemType: 'number',
+    required: true,
+  })
+  rawSpeed: number[];
+
+  @property({
+    type: 'array',
+    itemType: 'number',
+    required: true,
+  })
   rawX: number[];
+
+  @property({
+    type: 'array',
+    itemType: 'number',
+    required: true,
+  })
+  rawSpeedX: number[];
+
+  @property({
+    type: 'array',
+    itemType: 'number',
+    required: true,
+  })
+  rawY: number[];
+
+  @property({
+    type: 'array',
+    itemType: 'number',
+    required: true,
+  })
+  rawSpeedY: number[];
+
+  @property({
+    type: 'boolean',
+    required: true,
+  })
+  liked: boolean;
 
   @belongsTo(() => Image)
   imageId: string;
