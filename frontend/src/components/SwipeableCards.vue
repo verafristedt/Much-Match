@@ -1,4 +1,4 @@
-<!--  freely inspired from: https://github.com/josephharveyangeles/kittynder -->
+<!-- freely inspired from: https://github.com/josephharveyangeles/kittynder/blob/master/LICENSE -->
 <template>
   <section class="container">
     <div class="fixed header">

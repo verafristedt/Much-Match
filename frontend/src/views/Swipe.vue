@@ -1,3 +1,5 @@
+<!-- freely inspired from: https://github.com/josephharveyangeles/kittynder/blob/master/LICENSE -->
+
 <template>
   <div class="swipe-view">
     <swipeable-cards />
