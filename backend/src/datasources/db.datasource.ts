@@ -5,16 +5,16 @@ import {
   ValueOrPromise,
 } from '@loopback/core';
 import {juggler} from '@loopback/repository';
-import * as config from './dev-db.datasource.config.json';
+import * as configDev from './db.datasource.config.dev.json';
 
 @lifeCycleObserver('datasource')
-export class DevDbDataSource extends juggler.DataSource
+export class DbDataSource extends juggler.DataSource
   implements LifeCycleObserver {
-  static dataSourceName = 'DevDb';
+  static dataSourceName = 'Db';
 
   constructor(
-    @inject('datasources.config.DevDb', {optional: true})
-    dsConfig: object = config,
+    @inject('datasources.config.Db', {optional: true})
+    dsConfig: object = configDev,
   ) {
     super(dsConfig);
   }

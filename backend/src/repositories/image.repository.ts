@@ -4,7 +4,7 @@ import {
   HasManyRepositoryFactory,
 } from '@loopback/repository';
 import {Image, ImageRelations, Swipe} from '../models';
-import {DevDbDataSource} from '../datasources';
+import {DbDataSource} from '../datasources';
 import {inject, Getter} from '@loopback/core';
 import {SwipeRepository} from './swipe.repository';
 
@@ -19,7 +19,7 @@ export class ImageRepository extends DefaultCrudRepository<
   >;
 
   constructor(
-    @inject('datasources.DevDb') dataSource: DevDbDataSource,
+    @inject('datasources.Db') dataSource: DbDataSource,
     @repository.getter('SwipeRepository')
     protected swipeRepositoryGetter: Getter<SwipeRepository>,
   ) {

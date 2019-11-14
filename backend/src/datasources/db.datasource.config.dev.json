@@ -1,5 +1,5 @@
 {
-  "name": "DevDb",
+  "name": "Db",
   "connector": "memory",
   "localStorage": "",
   "file": "./data/db.json"

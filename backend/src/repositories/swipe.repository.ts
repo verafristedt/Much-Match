@@ -4,7 +4,7 @@ import {
   BelongsToAccessor,
 } from '@loopback/repository';
 import {Swipe, SwipeRelations, Image, User} from '../models';
-import {DevDbDataSource} from '../datasources';
+import {DbDataSource} from '../datasources';
 import {inject, Getter} from '@loopback/core';
 import {ImageRepository} from './image.repository';
 import {UserRepository} from './user.repository';
@@ -19,7 +19,7 @@ export class SwipeRepository extends DefaultCrudRepository<
   public readonly user: BelongsToAccessor<User, typeof Swipe.prototype.id>;
 
   constructor(
-    @inject('datasources.DevDb') dataSource: DevDbDataSource,
+    @inject('datasources.Db') dataSource: DbDataSource,
     @repository.getter('ImageRepository')
     protected imageRepositoryGetter: Getter<ImageRepository>,
     @repository.getter('UserRepository')

@@ -1,1 +1,1 @@
-export * from './dev-db.datasource';
+export * from './db.datasource';

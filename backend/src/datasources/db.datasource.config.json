@@ -1,0 +1,7 @@
+{
+  "name": "Db",
+  "connector": "cloudant",
+  "url": "http://admin:pass@localhost:8080",
+  "database": "muchmatch",
+  "modelIndex": ""
+}
