@@ -52,7 +52,10 @@ const postSwipeData = data => {
   axios
     .post(`${process.env.VUE_APP_API_BASE}swipes`, data)
     .then(console.log)
-    .catch(console.error); // TODO notify user and retry
+    .catch(err => {
+      console.error(err);
+      postSwipeData(data);
+    }); // TODO notify user and retry
 };
 
 export default {
