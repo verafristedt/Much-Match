@@ -1,7 +1,7 @@
 <!-- freely inspired from: https://github.com/josephharveyangeles/kittynder/blob/master/LICENSE -->
 <template>
   <section class="container">
-    <div class="fixed header">
+    <div class="fixed header accent">
       <span>{{title || 'Swipe it!'}}</span>
     </div>
     <div
@@ -54,10 +54,10 @@
     </div>
     <div class="footer fixed">
       <!-- TODO: helpers when click -->
-      <div class="btn btn--decline" @click="openhelper(false)">
+      <div class="btn primary--text btn--decline" @click="openhelper(false)">
         <i class="material-icons">close</i>
       </div>
-      <div class="btn btn--like" @click="openhelper(true)">
+      <div class="btn primary btn--like" @click="openhelper(true)">
         <i class="material-icons">favorite</i>
       </div>
     </div>
@@ -223,7 +223,7 @@ export default {
   top: 0;
   left: 0;
   color: white;
-  background: #f953c6;
+  // background: #f953c6;
   // background: -webkit-linear-gradient(to top, #b91d73, #f953c6);
   // background: linear-gradient(to top, #b91d73, #f953c6);
   // clip-path: polygon(0 1%, 100% 0%, 100% 76%, 0 89%);
@@ -283,8 +283,8 @@ export default {
     background-color: red;
     padding: 0.5rem;
     color: white;
-    box-shadow: 0 10px 13px -6px rgba(0, 0, 0, 0.2),
-      0 20px 31px 3px rgba(0, 0, 0, 0.14), 0 8px 38px 7px rgba(0, 0, 0, 0.12);
+    // box-shadow: 0 10px 13px -6px rgba(0, 0, 0, 0.2),
+    //   0 20px 31px 3px rgba(0, 0, 0, 0.14), 0 8px 38px 7px rgba(0, 0, 0, 0.12);
     i {
       font-size: 32px;
     }
@@ -319,6 +319,8 @@ export default {
 .card {
   width: 80vw;
   height: 60vh;
+  max-width: 500px;
+  max-height: 200vw;
   color: white;
   img {
     object-fit: cover;

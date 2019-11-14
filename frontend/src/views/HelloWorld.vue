@@ -1,9 +1,12 @@
 <template>
   <v-container>
-    <v-layout text-center wrap>
+    <v-layout text-center wrap pa-6>
       <v-flex mb-4>
-        <h1 class="display-2 font-weight-bold mb-3">MuchMatch: a swiping experiment</h1>
-        <p class="subheading font-weight-regular">
+        <h2 class="display-2 font-weight-bold mb-3">
+          MuchMatch:
+          <br />a&nbsp;swiping experiment
+        </h2>
+        <p class="text-left subheading font-weight-regular">
           This experiment investigates the correlation between your swiping
           behaviour and the information it contains about you/your feelings.
           What can we (or cannot) infer about the user from its swiping
@@ -18,8 +21,8 @@
       </v-flex>
 
       <v-flex mb-5 xs12>
-        <h2 class="headline font-weight-bold mb-3">Before starting the experiment...</h2>
-        <p class="font-weight-regular">
+        <h3 class="headline font-weight-bold mb-3">Before starting the experiment...</h3>
+        <p class="text-left font-weight-regular">
           In order to segment our data and to relate the information we might
           observe with some facts, we need some objective data about you.
           <b>No identification data is saved</b>.
@@ -63,7 +66,7 @@
             required
           ></v-checkbox>
 
-          <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">Continue</v-btn>
+          <v-btn :disabled="!valid" color="accent" class="mr-4" @click="validate">Continue</v-btn>
         </v-form>
       </v-flex>
     </v-layout>
