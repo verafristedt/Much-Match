@@ -20,6 +20,7 @@
         :interact-y-threshold="200"
         :interact-event-bus-events="interactEventBus"
         interact-block-drag-down
+        @onmove="console"
         @draggedRight="emitAndNext('match')"
         @draggedLeft="emitAndNext('reject')"
         @draggedUp="emitAndNext('skip')"
@@ -130,6 +131,10 @@ export default {
         this.index++;
         this.isVisible = true;
       }, 200);
+    },
+    console(data) {
+      // eslint-disable-next-line no-console
+      console.log(data);
     }
   }
 };
