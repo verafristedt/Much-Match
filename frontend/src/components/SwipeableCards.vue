@@ -24,7 +24,10 @@
         class="rounded-borders card card--one"
       >
         <div style="height: 100%">
-          <img :src="require(`../assets/images/${current.src}`)" class="rounded-borders" />
+          <img
+            :src="require(`../assets/images/${current.src}`)"
+            class="rounded-borders"
+          />
           <!-- <div class="text">
             <h2>
               {{current.name}},
@@ -34,9 +37,16 @@
         </div>
       </Vue2InteractDraggable>
     </div>
-    <div v-if="next" class="rounded-borders card card--two fixed fixed--center" style="z-index: 2">
+    <div
+      v-if="next"
+      class="rounded-borders card card--two fixed fixed--center"
+      style="z-index: 2"
+    >
       <div style="height: 100%">
-        <img :src="require(`../assets/images/${next.src}`)" class="rounded-borders" />
+        <img
+          :src="require(`../assets/images/${next.src}`)"
+          class="rounded-borders"
+        />
         <!-- <div class="text">
           <h2>
             {{ next.name }},
@@ -65,6 +75,7 @@
 </template>
 <script>
 import { Vue2InteractDraggable, InteractEventBus } from "vue2-interact";
+
 const EVENTS = {
   MATCH: "match",
   SKIP: "skip",
