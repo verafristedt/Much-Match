@@ -35,7 +35,7 @@
         <v-card-title class="headline grey lighten-2" primary-title>Thank you!</v-card-title>
 
         <v-card-text>
-          <br />You can now quit the app. Thanks a lot for your help!
+          <br />You can now close the app. Thanks a lot for your help!
         </v-card-text>
       </v-card>
     </v-dialog>
