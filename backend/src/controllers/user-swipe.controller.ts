@@ -91,18 +91,18 @@ export class UserSwipeController {
     return this.userRepository.swipes(id).patch(swipe, where);
   }
 
-  @del('/users/{id}/swipes', {
-    responses: {
-      '200': {
-        description: 'User.Swipe DELETE success count',
-        content: {'application/json': {schema: CountSchema}},
-      },
-    },
-  })
-  async delete(
-    @param.path.string('id') id: string,
-    @param.query.object('where', getWhereSchemaFor(Swipe)) where?: Where<Swipe>,
-  ): Promise<Count> {
-    return this.userRepository.swipes(id).delete(where);
-  }
+  // @del('/users/{id}/swipes', {
+  //   responses: {
+  //     '200': {
+  //       description: 'User.Swipe DELETE success count',
+  //       content: {'application/json': {schema: CountSchema}},
+  //     },
+  //   },
+  // })
+  // async delete(
+  //   @param.path.string('id') id: string,
+  //   @param.query.object('where', getWhereSchemaFor(Swipe)) where?: Where<Swipe>,
+  // ): Promise<Count> {
+  //   return this.userRepository.swipes(id).delete(where);
+  // }
 }

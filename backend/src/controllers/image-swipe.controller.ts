@@ -91,18 +91,18 @@ export class ImageSwipeController {
     return this.imageRepository.swipes(id).patch(swipe, where);
   }
 
-  @del('/images/{id}/swipes', {
-    responses: {
-      '200': {
-        description: 'Image.Swipe DELETE success count',
-        content: {'application/json': {schema: CountSchema}},
-      },
-    },
-  })
-  async delete(
-    @param.path.string('id') id: string,
-    @param.query.object('where', getWhereSchemaFor(Swipe)) where?: Where<Swipe>,
-  ): Promise<Count> {
-    return this.imageRepository.swipes(id).delete(where);
-  }
+  // @del('/images/{id}/swipes', {
+  //   responses: {
+  //     '200': {
+  //       description: 'Image.Swipe DELETE success count',
+  //       content: {'application/json': {schema: CountSchema}},
+  //     },
+  //   },
+  // })
+  // async delete(
+  //   @param.path.string('id') id: string,
+  //   @param.query.object('where', getWhereSchemaFor(Swipe)) where?: Where<Swipe>,
+  // ): Promise<Count> {
+  //   return this.imageRepository.swipes(id).delete(where);
+  // }
 }

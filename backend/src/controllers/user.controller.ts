@@ -152,14 +152,14 @@ export class UserController {
     await this.userRepository.replaceById(id, user);
   }
 
-  @del('/users/{id}', {
-    responses: {
-      '204': {
-        description: 'User DELETE success',
-      },
-    },
-  })
-  async deleteById(@param.path.string('id') id: string): Promise<void> {
-    await this.userRepository.deleteById(id);
-  }
+  // @del('/users/{id}', {
+  //   responses: {
+  //     '204': {
+  //       description: 'User DELETE success',
+  //     },
+  //   },
+  // })
+  // async deleteById(@param.path.string('id') id: string): Promise<void> {
+  //   await this.userRepository.deleteById(id);
+  // }
 }

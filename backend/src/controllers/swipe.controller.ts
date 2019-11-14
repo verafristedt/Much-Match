@@ -152,14 +152,14 @@ export class SwipeController {
     await this.swipeRepository.replaceById(id, swipe);
   }
 
-  @del('/swipes/{id}', {
-    responses: {
-      '204': {
-        description: 'Swipe DELETE success',
-      },
-    },
-  })
-  async deleteById(@param.path.string('id') id: string): Promise<void> {
-    await this.swipeRepository.deleteById(id);
-  }
+  // @del('/swipes/{id}', {
+  //   responses: {
+  //     '204': {
+  //       description: 'Swipe DELETE success',
+  //     },
+  //   },
+  // })
+  // async deleteById(@param.path.string('id') id: string): Promise<void> {
+  //   await this.swipeRepository.deleteById(id);
+  // }
 }

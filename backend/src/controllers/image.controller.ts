@@ -152,14 +152,14 @@ export class ImageController {
     await this.imageRepository.replaceById(id, image);
   }
 
-  @del('/images/{id}', {
-    responses: {
-      '204': {
-        description: 'Image DELETE success',
-      },
-    },
-  })
-  async deleteById(@param.path.string('id') id: string): Promise<void> {
-    await this.imageRepository.deleteById(id);
-  }
+  // @del('/images/{id}', {
+  //   responses: {
+  //     '204': {
+  //       description: 'Image DELETE success',
+  //     },
+  //   },
+  // })
+  // async deleteById(@param.path.string('id') id: string): Promise<void> {
+  //   await this.imageRepository.deleteById(id);
+  // }
 }
