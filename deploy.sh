@@ -28,7 +28,7 @@ if [ $rep -eq 1 ]
 then
     echo "Re-building frontend"
     cd ./frontend
-    npm run build
+    yarn build
     [ $? -eq 0 ] || exit $?;
     rm -rf ../backend/public/*
     cp -R ./dist/* ../backend/public
