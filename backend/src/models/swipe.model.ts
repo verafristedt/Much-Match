@@ -24,6 +24,12 @@ export class Swipe extends Entity {
   appHeight: number;
 
   @property({
+    type: 'number',
+    required: true,
+  })
+  duration: number;
+
+  @property({
     type: 'array',
     itemType: 'number',
     required: true,

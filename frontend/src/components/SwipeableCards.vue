@@ -115,6 +115,7 @@ export default {
         rawSpeed: []
       },
       swipeRelativeData: {
+        startTime: 0,
         lastX: 0,
         lastY: 0,
         lastT: 0
@@ -126,6 +127,9 @@ export default {
       helpDialog: false,
       helpLiked: false
     };
+  },
+  mounted() {
+    this.swipeRelativeData.startTime = new Date().getTime();
   },
   created() {
     window.addEventListener("resize", this.handleResize);
@@ -157,10 +161,12 @@ export default {
       InteractEventBus.$emit(EVENTS.SKIP);
     },
     emitAndNext(event) {
+      const endTime = new Date().getTime();
       const meta = {
         imageId: this.cards[this.index].id,
         appWidth: this.window.width,
-        appHeight: this.window.height
+        appHeight: this.window.height,
+        duration: endTime - this.swipeRelativeData.startTime
       };
       this.$emit(event, { ...meta, ...this.swipeData });
       // console.log(this.swipeData);
@@ -174,6 +180,7 @@ export default {
         rawSpeed: []
       };
       this.swipeRelativeData = {
+        startTime: endTime,
         lastX: 0,
         lastY: 0,
         lastT: 0
