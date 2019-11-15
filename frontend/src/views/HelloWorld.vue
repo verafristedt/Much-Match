@@ -101,9 +101,7 @@
 import Vue from "vue";
 import axios from "axios";
 import router from "../router";
-// Import component
 import Loading from "vue-loading-overlay";
-// Import stylesheet
 import "vue-loading-overlay/dist/vue-loading.css";
 
 export default Vue.extend({
