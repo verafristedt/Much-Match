@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <loading :active.sync="isLoading" :is-full-page="true"></loading>
     <v-layout text-center wrap pa-6>
       <v-flex mb-4>
         <h2 class="display-2 font-weight-bold mb-3">
@@ -100,10 +101,16 @@
 import Vue from "vue";
 import axios from "axios";
 import router from "../router";
+import Loading from "vue-loading-overlay";
+import "vue-loading-overlay/dist/vue-loading.css";
 
 export default Vue.extend({
   name: "HelloWorld",
+  components: {
+    Loading
+  },
   data: () => ({
+    isLoading: false,
     valid: true,
     age: null,
     gender: null,
@@ -117,6 +124,7 @@ export default Vue.extend({
   methods: {
     validate() {
       if (this.$refs.form.validate()) {
+        this.isLoading = true;
         const userData = {};
         userData.age = this.age;
         userData.isWorking = !!this.isWorking;
@@ -134,7 +142,8 @@ export default Vue.extend({
               "An error occurred contacting the server... Please retry now or later. If the problem persists please contact us."
             );
             console.error(error);
-          }); // TODO notify user and retry
+          })
+          .finally(() => (this.isLoading = false)); // TODO notify user and retry
       }
     },
     next() {
