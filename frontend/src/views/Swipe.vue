@@ -88,7 +88,6 @@ export default {
       this.updateTitle();
     },
     updateTitle() {
-      console.log("test");
       const count = ++this.counter;
       const total = this.cards.length;
       const left = total - count;
