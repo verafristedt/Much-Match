@@ -21,6 +21,11 @@ export class Image extends Entity {
   })
   name?: string;
 
+  @property({
+    type: 'string',
+  })
+  category?: string;
+
   @hasMany(() => Swipe)
   swipes: Swipe[];
   // Define well-known properties here
