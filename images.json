@@ -1,0 +1,125 @@
+[{
+    "src": "idealistic_1.jpg",
+    "category": "idealistic"
+  },
+  {
+    "src": "idealistic_2.jpg",
+    "category": "idealistic"
+  },
+  {
+    "src": "idealistic_3.jpg",
+    "category": "idealistic"
+  },
+  {
+    "src": "idealistic_4.jpg",
+    "category": "idealistic"
+  },
+  {
+    "src": "idealistic_5.jpg",
+    "category": "idealistic"
+  },
+  {
+    "src": "idealistic_6.jpg",
+    "category": "idealistic"
+  },
+  {
+    "src": "idealistic_7.jpg",
+    "category": "idealistic"
+  },
+  {
+    "src": "materialistic_1.jpg",
+    "category": "materialistic"
+  },
+  {
+    "src": "materialistic_2.jpg",
+    "category": "materialistic"
+  },
+  {
+    "src": "materialistic_3.jpg",
+    "category": "materialistic"
+  },
+  {
+    "src": "materialistic_4.jpg",
+    "category": "materialistic"
+  },
+  {
+    "src": "materialistic_5.jpg",
+    "category": "materialistic"
+  },
+  {
+    "src": "materialistic_6.jpg",
+    "category": "materialistic"
+  },
+  {
+    "src": "modern_1.jpg",
+    "category": "modern"
+  },
+  {
+    "src": "modern_2.jpg",
+    "category": "modern"
+  },
+  {
+    "src": "modern_3.jpg",
+    "category": "modern"
+  },
+  {
+    "src": "modern_4.jpg",
+    "category": "modern"
+  },
+  {
+    "src": "modern_5.jpg",
+    "category": "modern"
+  },
+  {
+    "src": "modern_6.jpg",
+    "category": "modern"
+  },
+  {
+    "src": "traditional_1.jpg",
+    "category": "traditional"
+  },
+  {
+    "src": "traditional_2.jpg",
+    "category": "traditional"
+  },
+  {
+    "src": "traditional_3.jpg",
+    "category": "traditional"
+  },
+  {
+    "src": "traditional_4.jpg",
+    "category": "traditional"
+  },
+  {
+    "src": "traditional_5.jpg",
+    "category": "traditional"
+  },
+  {
+    "src": "traditional_6.jpg",
+    "category": "traditional"
+  },
+  {
+    "src": "watch_1.webp",
+    "name": "Rolex GMT-MASTER II",
+    "category": "watch"
+  },
+  {
+    "src": "watch_2.webp",
+    "category": "watch"
+  },
+  {
+    "src": "watch_3.webp",
+    "name": "Rolex Oyster Perpetual 39",
+    "category": "watch"
+  },
+  {
+    "src": "watch_4.webp",
+    "name": "Rolex Cellini Moonphase",
+    "category": "watch"
+  },
+  {
+    "src": "watch_5.webp",
+    "name": "Rolex Sky Dweller",
+    "category": "watch"
+  }
+]
