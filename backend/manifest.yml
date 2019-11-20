@@ -3,7 +3,7 @@ applications:
     name: much-match
     random-route: false
     path: .
-    memory: 256M
+    memory: 512M
     instances: 1
     disk_quota: 1G
     services:
