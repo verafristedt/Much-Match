@@ -3,10 +3,8 @@
     <loading :active.sync="isLoading" :is-full-page="true"></loading>
     <v-layout text-center wrap pa-6>
       <v-flex mb-4>
-        <h2 class="display-2 font-weight-bold mb-3">
-          MuchMatch:
-          <br />a&nbsp;swiping experiment
-        </h2>
+        <img alt="logo" :src="require('../assets/logo_cut.png')" />
+        <h2 class="display-2 font-weight-bold mb-3">...a&nbsp;swiping experiment</h2>
         <p class="text-left subheading font-weight-regular">
           This experiment investigates the correlation between your swiping
           behaviour and the information it contains about you/your feelings.
@@ -22,16 +20,19 @@
       </v-flex>
 
       <v-flex mb-5 xs12>
+        <p class="alert">
+          The library used for the swiping functionnality is not working well on some iPhones.
+          Please use your computer or another phone to participate in the experiment if you are concerned.
+        </p>
+      </v-flex>
+
+      <v-flex mb-5 xs12>
         <h3 class="headline font-weight-bold mb-3">Before starting the experiment...</h3>
         <p class="text-left font-weight-regular">
           In order to segment our data and to relate the information we might
           observe with some facts, we need some objective data about you.
           <b>No identification data is saved</b>.
         </p>
-
-        <!-- TODO: form -->
-
-        <!-- TODO: give the user its personal identifier? to allow data deletion? -->
       </v-flex>
 
       <v-flex mb-4 xs12>
@@ -130,7 +131,7 @@ export default Vue.extend({
         userData.isWorking = !!this.isWorking;
         userData.isStudent = !!this.isStudent;
         userData.isMale = this.gender === this.genders[0];
-        // TODO: loader
+
         axios
           .post(`${process.env.VUE_APP_API_BASE}users`, userData)
           .then(response => {
@@ -143,7 +144,7 @@ export default Vue.extend({
             );
             console.error(error);
           })
-          .finally(() => (this.isLoading = false)); // TODO notify user and retry
+          .finally(() => (this.isLoading = false));
       }
     },
     next() {
@@ -153,3 +154,14 @@ export default Vue.extend({
   }
 });
 </script>
+
+<style lang="scss" scoped>
+img {
+  width: 80%;
+  max-width: 400px;
+}
+p.alert {
+  color: #ab2e46;
+  border: 1px solid;
+}
+</style>

@@ -53,7 +53,6 @@
       <div style="height: 100%"></div>
     </div>
     <div class="footer fixed">
-      <!-- TODO: helpers when click -->
       <div class="btn primary--text btn--decline" @click="openhelper(false)">
         <i class="material-icons">close</i>
       </div>
@@ -329,6 +328,7 @@ export default {
   max-width: 500px;
   max-height: 200vw;
   color: white;
+  background: white;
   img {
     object-fit: cover;
     display: block;

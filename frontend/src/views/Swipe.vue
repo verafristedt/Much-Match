@@ -11,13 +11,18 @@
 
         <v-card-text>
           <br />You are now ready to
-          <b>swipe</b>! The following pictures represent different concepts.
-          Swipe
+          <b>swipe!</b> The following pictures represent different concepts or products.
+          <br />Swipe
           <b>RIGHT</b> if you
           <b>LIKE</b> the picture and its concept
           or
           <b>LEFT</b> if you
           <b>DON'T LIKE</b> it.
+          <br />If it's a product,
+          <b>left</b> if you
+          <b>don't want it</b>,
+          <b>right</b> if you
+          <b>would buy it</b> (do not think about the estimated price).
           <br />
           <br />Good luck, it's very quick! And try to act natural... ;-)
         </v-card-text>
@@ -65,13 +70,15 @@ export default {
       counter: 0,
       title: null,
       finished: false,
-      postingCount: 0,
-      loading: true // TODO
+      postingCount: 0
     };
   },
   computed: {
-    reallyFinished: function() {
-      return this.finished && !this.isLoading;
+    reallyFinished: {
+      get: function() {
+        return this.finished && !this.isLoading;
+      },
+      set: function(newValue) {}
     }
   },
   methods: {
@@ -113,7 +120,7 @@ export default {
         .catch(err => {
           console.error(err);
           setTimeout(() => this.postSwipeData(data, false), 1000);
-        }); // TODO notify user and retry
+        });
     }
   },
   mounted() {
