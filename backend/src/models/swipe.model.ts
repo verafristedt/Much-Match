@@ -13,6 +13,12 @@ export class Swipe extends Entity {
 
   @property({
     type: 'number',
+    required: false,
+  })
+  order: number;
+
+  @property({
+    type: 'number',
     required: true,
   })
   appWidth: number;

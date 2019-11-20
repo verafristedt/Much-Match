@@ -85,12 +85,14 @@ export default {
     onmatch(data) {
       data.liked = true;
       data.userId = this.userId;
+      data.order = this.counter;
       this.postSwipeData(data);
       this.updateTitle();
     },
     onreject(data) {
       data.liked = false;
       data.userId = this.userId;
+      data.order = this.counter;
       this.postSwipeData(data);
       this.updateTitle();
     },
