@@ -1,15 +1,8 @@
 {
-  "ids": {
-    "Image": 7
-  },
+  "ids": {},
   "models": {
-    "Image": {
-      "1": "{\"src\":\"bona.jpg\",\"name\":\"bona\",\"id\":1}",
-      "2": "{\"src\":\"alexander.jpg\",\"id\":2}",
-      "3": "{\"src\":\"ichi.jpg\",\"id\":3}",
-      "4": "{\"src\":\"max.jpg\",\"id\":4}",
-      "5": "{\"src\":\"karina.jpg\",\"id\":5}",
-      "6": "{\"src\":\"mona.jpg\",\"id\":6}"
-    }
+    "Image": {},
+    "User": {},
+    "Swipe": {}
   }
 }
