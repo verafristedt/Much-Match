@@ -121,5 +121,25 @@
     "src": "watch_5.jpg",
     "name": "Rolex Sky Dweller",
     "category": "watch"
+  },
+  {
+    "src": "watch_6.jpg",
+    "name": "Apple Watch 3",
+    "category": "watch"
+  },
+  {
+    "src": "watch_7.jpg",
+    "name": "Casio Watch A168WEGG",
+    "category": "watch"
+  },
+  {
+    "src": "watch_8.jpg",
+    "name": "Navitimer 01",
+    "category": "watch"
+  },
+  {
+    "src": "watch_9.jpg",
+    "name": "Patek Philippe Calatrava",
+    "category": "watch"
   }
 ]
