@@ -14,7 +14,6 @@ import {
   getWhereSchemaFor,
   patch,
   put,
-  del,
   requestBody,
 } from '@loopback/rest';
 import {Swipe} from '../models';
@@ -46,7 +45,9 @@ export class SwipeController {
       },
     })
     swipe: Omit<Swipe, 'id'>,
+    @param.header.string('User-Agent') userAgent: string,
   ): Promise<Swipe> {
+    swipe.userAgent = userAgent;
     return this.swipeRepository.create(swipe);
   }
 

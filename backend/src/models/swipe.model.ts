@@ -97,6 +97,12 @@ export class Swipe extends Entity {
   userId: string;
   // Define well-known properties here
 
+  @property({
+    type: 'string',
+  })
+  userAgent?: string;
+  // Define well-known properties here
+
   constructor(data?: Partial<Swipe>) {
     super(data);
   }
