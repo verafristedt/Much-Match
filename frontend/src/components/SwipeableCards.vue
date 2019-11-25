@@ -20,6 +20,7 @@
         interact-block-drag-down
         @onmove="console"
         @draggedRight="emitAndNext('match')"
+        @draggedUp="emitAndNext('match')"
         @draggedLeft="emitAndNext('reject')"
         class="rounded-borders card card--one"
       >
