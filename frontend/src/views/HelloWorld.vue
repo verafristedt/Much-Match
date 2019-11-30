@@ -79,7 +79,7 @@
 
         <v-card-text>
           <br />
-          <b>{{userId}}</b> is the only identifier linked to your swiping data. You can use it if you need to contact us to remove your data from the study!
+          <b>{{user}}</b> is the only identifier linked to your swiping data. You can use it if you need to contact us to remove your data from the study!
           <br />
           <br />Before starting the actual swiping features collection, you will follow a quick tutorial for using our user interface. Try to act normal!
           <br />The study is about 30 swipes, please stay until the end...
@@ -119,7 +119,7 @@ export default Vue.extend({
     isStudent: false,
     isWorking: false,
     agreed: false,
-    userId: null,
+    user: null,
     dialog: false
   }),
   methods: {
@@ -135,8 +135,8 @@ export default Vue.extend({
         axios
           .post(`${process.env.VUE_APP_API_BASE}users`, userData)
           .then(response => {
-            this.userId = response.data.id;
-            this.dialog = !!this.userId;
+            this.user = response.data.id;
+            this.dialog = !!this.user;
           })
           .catch(error => {
             window.alert(
@@ -148,7 +148,7 @@ export default Vue.extend({
       }
     },
     next() {
-      window.localStorage.setItem("userId", this.userId);
+      window.localStorage.setItem("userId", this.user);
       router.push("/tutorial");
     }
   }

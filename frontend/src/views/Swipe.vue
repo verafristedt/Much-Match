@@ -64,7 +64,7 @@ export default {
   data() {
     return {
       isLoading: false,
-      userId: null,
+      user: null,
       cards: [],
       dialog: true,
       counter: 0,
@@ -84,14 +84,14 @@ export default {
   methods: {
     onmatch(data) {
       data.liked = true;
-      data.userId = this.userId;
+      data.user = this.user;
       data.order = this.counter;
       this.postSwipeData(data);
       this.updateTitle();
     },
     onreject(data) {
       data.liked = false;
-      data.userId = this.userId;
+      data.user = this.user;
       data.order = this.counter;
       this.postSwipeData(data);
       this.updateTitle();
@@ -111,7 +111,7 @@ export default {
     },
     postSwipeData(data, increment = true) {
       if (increment) this.postingCount++;
-      data.imageId = data.imageId + "";
+      data.image = data.image + "";
       axios
         .post(`${process.env.VUE_APP_API_BASE}swipes`, data)
         .then(() => {
@@ -126,7 +126,7 @@ export default {
     }
   },
   mounted() {
-    this.userId = window.localStorage.getItem("userId");
+    this.user = window.localStorage.getItem("userId");
     axios
       .get(`${process.env.VUE_APP_API_BASE}images`)
       .then(response => (this.cards = shuffle(response.data)));

@@ -163,7 +163,7 @@ export default {
     emitAndNext(event) {
       const endTime = new Date().getTime();
       const meta = {
-        imageId: this.cards[this.index].id,
+        image: this.cards[this.index].id,
         appWidth: this.window.width,
         appHeight: this.window.height,
         duration: endTime - this.swipeRelativeData.startTime
