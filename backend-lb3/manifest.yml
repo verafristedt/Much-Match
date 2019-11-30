@@ -1,0 +1,13 @@
+applications:
+-
+    name: much-match
+    random-route: false
+    path: .
+    memory: 512M
+    instances: 1
+    disk_quota: 1G
+    services:
+    - MuchMach-DB
+    env:
+        VUE_APP_API_BASE: /api/
+        NODE_ENV: production
