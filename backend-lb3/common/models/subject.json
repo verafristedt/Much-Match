@@ -1,0 +1,41 @@
+{
+  "name": "Subject",
+  "plural": "subjects",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "required": true
+    },
+    "isMale": {
+      "type": "boolean",
+      "required": true
+    },
+    "age": {
+      "type": "number",
+      "required": true
+    },
+    "isWorking": {
+      "type": "boolean",
+      "required": true
+    },
+    "isStudent": {
+      "type": "boolean",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "swipes": {
+      "type": "hasMany",
+      "model": "Swipe",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

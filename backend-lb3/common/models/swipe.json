@@ -1,0 +1,94 @@
+{
+  "name": "Swipe",
+  "plural": "swipes",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "required": true
+    },
+    "order": {
+      "type": "number"
+    },
+    "appWidth": {
+      "type": "number",
+      "required": true
+    },
+    "appHeight": {
+      "type": "number",
+      "required": true
+    },
+    "duration": {
+      "type": "number",
+      "required": true
+    },
+    "rawTime": {
+      "type": [
+        "number"
+      ],
+      "required": true
+    },
+    "rawTimestamps": {
+      "type": [
+        "number"
+      ],
+      "required": true
+    },
+    "rawSpeed": {
+      "type": [
+        "number"
+      ],
+      "required": true
+    },
+    "rawX": {
+      "type": [
+        "number"
+      ],
+      "required": true
+    },
+    "rawSpeedX": {
+      "type": [
+        "number"
+      ],
+      "required": true
+    },
+    "rawY": {
+      "type": [
+        "number"
+      ],
+      "required": true
+    },
+    "rawSpeedY": {
+      "type": [
+        "number"
+      ],
+      "required": true
+    },
+    "liked": {
+      "type": "boolean",
+      "required": true
+    },
+    "userAgent": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "Subject",
+      "foreignKey": "id"
+    },
+    "image": {
+      "type": "belongsTo",
+      "model": "Image",
+      "foreignKey": "id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

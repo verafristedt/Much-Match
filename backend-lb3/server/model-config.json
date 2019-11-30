@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "Image": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Swipe": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Subject": {
+    "dataSource": "db",
+    "public": true
+  }
+}
