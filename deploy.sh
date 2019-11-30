@@ -30,7 +30,7 @@ then
     ./build_frontend.sh
 fi
 
-cd backend
+cd backend-lb3
 
 npm run build
 
