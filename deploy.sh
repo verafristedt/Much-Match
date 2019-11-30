@@ -27,12 +27,7 @@ fi
 if [ $rep -eq 1 ]
 then
     echo "Re-building frontend"
-    cd ./frontend
-    yarn build
-    [ $? -eq 0 ] || exit $?;
-    rm -rf ../backend/public/*
-    cp -R ./dist/* ../backend/public
-    cd -
+    ./build_frontend.sh
 fi
 
 cd backend
