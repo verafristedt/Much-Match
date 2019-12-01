@@ -133,7 +133,7 @@ export default Vue.extend({
         userData.isMale = this.gender === this.genders[0];
 
         axios
-          .post(`${process.env.VUE_APP_API_BASE}users`, userData)
+          .post(`${process.env.VUE_APP_API_BASE}subjects`, userData)
           .then(response => {
             this.user = response.data.id;
             this.dialog = !!this.user;
