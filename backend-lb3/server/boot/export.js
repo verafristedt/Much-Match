@@ -25,27 +25,28 @@ module.exports = function (app) {
 
   Swipe.export = async function (db_delay) {
     db_delay = db_delay ? db_delay : 1200;
-    const swipes = await Swipe.find();
+    const swipes = rst(await Swipe.find());
     await delay(db_delay);
-    const images = await Image.find();
+    const images = rst(await Image.find());
     await delay(db_delay);
-    const users = await Subject.find();
+    const users = rst(await Subject.find());
     const res = [];
     swipes.forEach(swipe => {
-      swipe = rst(swipe);
-      const image = rst(images.find(img => img.id == swipe.image));
-      const user = rst(users.find(usr => usr.id == swipe.user));
-      const swp = {
-        swp_id: swipe.id,
-        img_id: image.id,
-        usr_id: user.id
-      };
-      addPropsPrefixed(swp, "swp", swipe);
-      addPropsPrefixed(swp, "usr", user);
-      addPropsPrefixed(swp, "img", image);
-      res.push(swp);
+      if (swipe.image && swipe.user) {
+        const image = images.find(img => img.id == swipe.image);
+        const user = users.find(usr => usr.id == swipe.user);
+        const swp = {
+          swp_id: swipe.id,
+          img_id: image.id,
+          usr_id: user.id
+        };
+        addPropsPrefixed(swp, "swp", swipe);
+        addPropsPrefixed(swp, "usr", user);
+        addPropsPrefixed(swp, "img", image);
+        res.push(swp);
+      }
     });
-
+    // console.log('export count:', res.length)
     return [parse(res), "text/csv"]
   };
   Swipe.remoteMethod("export", {
