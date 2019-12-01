@@ -28,7 +28,7 @@
     "swipes": {
       "type": "hasMany",
       "model": "Swipe",
-      "foreignKey": ""
+      "foreignKey": "image"
     }
   },
   "acls": [],

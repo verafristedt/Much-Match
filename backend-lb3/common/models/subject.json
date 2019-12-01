@@ -33,7 +33,7 @@
     "swipes": {
       "type": "hasMany",
       "model": "Swipe",
-      "foreignKey": ""
+      "foreignKey": "user"
     }
   },
   "acls": [],
