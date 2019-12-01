@@ -32,8 +32,6 @@ fi
 
 cd backend-lb3
 
-npm run build
-
 set -x
 ibmcloud target -r ${GEO} -o "$ORG_NAME" -s ${SPACE_NAME}
 [ $? -eq 0 ] || exit $?;
