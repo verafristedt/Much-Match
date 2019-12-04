@@ -1,6 +1,6 @@
-cd ./frontend
+cd ./experiment_app
 yarn build
 [ $? -eq 0 ] || exit $?;
-rm -rf ../backend-lb3/public/*
-cp -R ./dist/* ../backend-lb3/client
+rm -rf ../lb3_backend/client/*
+cp -R ./dist/* ../lb3_backend/client
 cd -
