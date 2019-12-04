@@ -8,32 +8,6 @@
       @match="onmatch"
       @reject="onreject"
     />
-
-    <v-dialog v-model="dialog" width="500">
-      <v-card>
-        <v-card-title class="headline grey lighten-2" primary-title>Ooops!</v-card-title>
-
-        <v-card-text>
-          <br />
-          You were supposed to swipe {{expected ? 'right' : 'left'}} but you swiped {{!expected ? 'right' : 'left'}}...
-          Remember:
-          <b>Right</b> is for what you
-          <b>like</b>
-          and
-          <b>Left</b> is for what you
-          <b>do not like</b>.
-          <br />
-          <br />Just press your finger on the screen and move the card to the asked side! :-)
-        </v-card-text>
-
-        <v-divider></v-divider>
-
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="primary" text @click="dialog = false">Ok!</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
   </div>
 </template>
 
@@ -57,21 +31,15 @@ export default {
   },
   methods: {
     onmatch(data) {
-      this.checkResult(true);
+      data.liked = true;
+      this.next();
     },
     onreject(data) {
-      this.checkResult(false);
+      data.liked = false;
+      this.next();
     },
-    checkResult(got) {
-      const expected = this.cards[this.currentIndex++].expectLike;
-      if (got !== expected) {
-        this.dialog = true;
-        this.expected = expected;
-        this.cards.push(this.cards[this.currentIndex - 1]);
-      }
-      if (this.currentIndex === this.cards.length) {
-        router.push("/swipe");
-      }
+    next() {
+      this.currentIndex++;
     }
   },
   mounted() {
@@ -114,7 +82,12 @@ export default {
       "zoe.jpg"
     ];
     catsImages = shuffle(catsImages);
-    for (let i = 0; i < cards.length; ++i) cards[i].src = catsImages[i];
+    for (let i = 0; i < cards.length; ++i) {
+      cards[i].src = catsImages[i];
+      const catName = catsImages[i].split(".")[0];
+      const title = catName.charAt(0).toUpperCase() + catName.slice(1);
+      cards[i].title = title;
+    }
     this.cards = cards;
     this.currentIndex = 0;
   }
