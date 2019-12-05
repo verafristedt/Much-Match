@@ -30,7 +30,7 @@ then
     ./build_frontend.sh
 fi
 
-cd backend-lb3
+cd lb3_backend
 
 set -x
 ibmcloud target -r ${GEO} -o "$ORG_NAME" -s ${SPACE_NAME}
