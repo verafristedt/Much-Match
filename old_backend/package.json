@@ -59,7 +59,7 @@
     "openapi-to-graphql-cli": "^1.6.2"
   },
   "devDependencies": {
-    "@loopback/build": "^2.0.16",
+    "@loopback/build": "^9.0.6",
     "source-map-support": "^0.5.16",
     "@loopback/testlab": "^1.9.4",
     "@types/node": "^10.17.5",
